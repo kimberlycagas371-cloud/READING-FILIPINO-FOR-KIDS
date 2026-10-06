@@ -4,7 +4,6 @@
 const CONSONANTS = ["b", "k", "d", "g", "h", "l", "m", "n", "ng", "p", "r", "s", "t", "w", "y"];
 const VOWELS = ["a", "e", "i", "o", "u"];
 
-// [salita, larawan, pantig]
 const WORDS = [
   { text: "aso",      emoji: "🐶", syllables: ["a", "so"] },
   { text: "pusa",     emoji: "🐱", syllables: ["pu", "sa"] },
@@ -32,7 +31,7 @@ const WORDS = [
 const speech = {
   voice: null,
 
-  // Humanap ng boses na Filipino/Tagalog
+  
   loadVoice() {
     if (!("speechSynthesis" in window)) return;
     const voices = speechSynthesis.getVoices();
@@ -46,7 +45,7 @@ const speech = {
       : "Paalala: kung walang boses na Filipino ang device, gagamit ito ng ibang boses.";
   },
 
-  // Bigkasin ang teksto; tatawagin ang onDone pagkatapos
+ 
   say(text, onDone) {
     if (!("speechSynthesis" in window)) {
       if (onDone) onDone();
@@ -57,7 +56,7 @@ const speech = {
     const utterance = new SpeechSynthesisUtterance(text);
     utterance.lang = this.voice ? this.voice.lang : "fil-PH";
     if (this.voice) utterance.voice = this.voice;
-    utterance.rate = 0.7;   // mabagal para madaling sundan
+    utterance.rate = 0.7;  
     utterance.pitch = 1.15;
     if (onDone) utterance.onend = onDone;
 
@@ -110,10 +109,9 @@ const syllables = {
     this.show("b");
   },
 
-  // A E I O U — nasa simula ng seksyon
   showVowels() {
     const row = $("vowels");
-    if (!row) return; // kung luma pa ang index.html, huwag ihinto ang buong app
+    if (!row) return; 
 
     VOWELS.forEach((vowel) => {
       const button = makeButton("syllable", vowel.toUpperCase(), () => {
@@ -176,7 +174,6 @@ const reader = {
     });
   },
 
-  // Basahin ang bawat pantig, saka ang buong salita
   readAloud() {
     const buttons = [...$("word-syllables").children];
     let i = 0;
