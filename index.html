@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="fil">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Magbasa Tayo!</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app">
+
+    <!-- Header -->
+    <header class="header">
+      <h1 class="header__title">Magbasa Tayo! 📖</h1>
+      <p class="header__subtitle">Pindutin ang mga letra at larawan para marinig.</p>
+    </header>
+
+    <!-- Mga tab -->
+    <nav class="tabs" role="tablist" aria-label="Mga bahagi ng app">
+      <button class="tabs__btn" role="tab" data-tab="pantig" aria-selected="true">Pantig</button>
+      <button class="tabs__btn" role="tab" data-tab="salita" aria-selected="false">Salita</button>
+      <button class="tabs__btn" role="tab" data-tab="laro"   aria-selected="false">Laro</button>
+    </nav>
+
+    <!-- Bahagi 1: Pantig -->
+    <section id="pantig" class="panel card">
+      <h2 class="section-title">Patinig</h2>
+      <div id="vowels" class="syllable-row syllable-row--vowels"></div>
+
+      <h2 class="section-title">Katinig</h2>
+      <div id="consonants" class="chips"></div>
+      <div id="syllables" class="syllable-row"></div>
+    </section>
+
+    <!-- Bahagi 2: Salita -->
+    <section id="salita" class="panel card" hidden>
+      <button id="word-picture" class="word-picture" aria-label="Pakinggan ang salita"></button>
+      <div id="word-syllables" class="syllable-row"></div>
+      <div class="controls">
+        <button id="btn-read" class="btn">▶ Basahin</button>
+        <button id="btn-prev" class="btn btn--alt" aria-label="Nakaraang salita">◀</button>
+        <button id="btn-next" class="btn btn--alt" aria-label="Susunod na salita">▶</button>
+      </div>
+    </section>
+
+    <!-- Bahagi 3: Laro -->
+    <section id="laro" class="panel card" hidden>
+      <button id="btn-hear" class="btn">🔊 Pakinggan</button>
+      <div id="choices" class="choices"></div>
+      <p id="feedback" class="feedback" aria-live="polite"></p>
+      <p class="note">Mga bituin: <span id="score">0</span> ⭐</p>
+    </section>
+
+    <p id="voice-note" class="note"></p>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
